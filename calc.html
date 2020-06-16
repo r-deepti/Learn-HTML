@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoresheet</title>
+</head>
+<body>
+<script>
+        function check()
+        {
+            var tamil=document.getElementById("tm").value;
+            var english=document.getElementById("em").value;
+            var maths=document.getElementById("mm").value;
+            var science=document.getElementById("sm").value;
+            var social=document.getElementById("som").value;
+
+            var d1=document.getElementById("display1");
+            var d2=document.getElementById("display2");
+
+            var tot=parseInt(tamil)+parseInt(english)+parseInt(maths)+parseInt(science)+parseInt(social);
+            var avg=tot*100/500;
+            
+            d1.innerHTML="Total score secured:"+tot;
+            d2.innerHTML="Average score:"+avg;
+        }
+    </script>
+    <table border="5" height="400" width="400">
+        <form>
+            <tr>
+                <th colspan="2">SCORESHEET</th>
+            </tr>
+            <tr>
+                <td ><label>Tamil mark:</label></td>
+                <td><input type="number" id ="tm"/></td>
+            </tr>
+            <tr>
+                <td><label>English mark:</label></td>			
+                <td><input type="number" id ="em"/></td>
+            </tr>
+            <tr>
+                <td><label>Maths mark:</label></td>
+                <td><input type="number" id ="mm"/></td>
+            </tr>
+            <tr>
+                <td><label>Science mark:</label></td>
+                <td><input type="number" id ="sm"/></td>
+            </tr>
+            <tr>
+                <td><label>Social mark:</label></td>
+                <td><input type="number" id ="som"/></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" colspan="2"><input type="button" value="Submit" onclick="check()"/></td>
+            </tr>
+        </form>
+    </table>
+    <h1 id="display1"></h1>
+    <h1 id="display2"></h1>
+   </body>
+</html>

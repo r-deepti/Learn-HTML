@@ -1,103 +1,209 @@
-<html lang="en">
+
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+<meta http-equiv="Content-Type" content="text/html";charset=utf-8"/>
+<title>Register</title>
+<link href="signup.css" rel="stylesheet" type="text/css"/>
+<link href="https://fonts.googleapis.com/css?family=Play" rel=stylesheet">
 </head>
 <style>
     body
     {
-        margin:0;
-        padding:0;
-        font-family: sans-serif;
-        background:url("kec.jpeg") ;
+        font-family: Tahoma,Geneva,sans-serif;
+        color: #fff;
+        background: url("kec.jpeg");
         background-size: cover;
     }
-    .box
+    .signup
     {
-        position:absolute;
-        top: 50%;
-        left: 50%;
-        transform:translate(-50%,-50%);
-        width:400px;
+        background: rgba(44,62,80,0.7);
         padding:40px;
-        background:rgba(0,0,0,.8);
-        box-sizing: border-box;
-        box-shadow: 0 15px 25px rgba(0,0,0,.5);
-        border-radius: 10px;
+        width:250px;
+        margin: auto;
+        margin-top: 80px;
+        height:430px;
+        margin-left: 180px;
+        margin: 0 auto;
+        margin-top: 90px;
     }
-    .box h2
+    form
     {
-        margin: 0 0 30px;
-        padding: 0;
-        color: #fff;
+        width:240px;
         text-align: center;
     }
-    .box .inputBox
+    input
     {
-        position:relative;
-    }
-    .box .inputBox input
-    {
-        width: 100;
-        padding: 10px 0;
-        font-size: 16px;
-        color: #fff;
-        letter-spacing: 1px;
-        margin-bottom: 30px;
-        border: none;
-        border-bottom: 1px solid;
-        outline: none;
-        background: transparent;
-    }
-    .box .inputBox label
-    {
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 10px 0;
-        font-size: 16px;
-        color: #fff;
-        pointer-events: none;
-        transition: .5s;
-    }
-    .box .inputBox input:focus ~ label,
-    .box .inputBox input:valid ~ label
-    {
-        top: -18px;
-        left: 0;
-        color: #03a9f4;
-        font-size: 12px;
-    }
-    .box input[type="submit"]
-    {
+        width: 240px;
+        text-align: center;
         background: transparent;
         border: none;
+        border-bottom: ipx solid #fff;
+        font-family: 'Play',sans-serif;
+        font-size: 16px;
+        font-weight: 200px;
+        padding: 10px 0;
+        transition: border 0.5s;
         outline: none;
-        color: #fff;
-        background: #03a9f4;
-        padding: 10px 20px;
+        color:#fff;
+    }
+    input[type=button]
+    {
+        border:none;
+        width:190px;
+        background:white;
+        color:#000;
+        font-size: 16px;
+        line-height: 25px;
+        padding: 10px 0;
+        border-radius: 15px;
         cursor: pointer;
-        border-radius: 5px;
     }
-    
+    input[type=button]:hover
+    {
+        color:white;
+        background-color:black;
+    }
+    h1
+    {
+        color:#000;
+    }
+    ::placeholder
+    {
+        color: aliceblue;
+        opacity:0.8;
+    }
+    #msg
+    {
+        visibility: hidden;
+        min-width: 250px;
+        background-color:turquoise;
+        color: #000;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        right: 40%;
+        top: 30px;
+        font-size: 17px;
+    }
+    #msg.show
+    {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s,fadeout 0.5s 2.5s;
+        animation: fadein 0.5s,fadeout 05s 2.5s;
+    }
+    @-webkit-keyframes fadein
+    {
+        from
+        {
+            top: 0;
+            opacity: 0;
+        }
+       to
+       {
+           top: 30px;
+           opacity: 1;
+       }
+    }
+    @keyframes fadein
+    {
+        from
+        {
+            top: 0;
+            opacity: 0;
+        }
+       to
+       {
+           top: 30px;
+           opacity: 1;
+       }
+    }
+    @-webkit-keyframes fadeout
+    {
+        from
+        {
+            top: 30px;
+            opacity: 1;
+        }
+       to
+       {
+           top: 0;
+           opacity: 0;
+       }
+    }
+    @-webkit-keyframes fadein
+    {
+        from
+        {
+            top: 30px;
+            opacity: 1;
+        }
+       to
+       {
+           top: 0;
+           opacity: 0;
+       }
+    }
 </style>
-<body>
 
-    <div class="box">
-        <h2>Login</h2>
-        <form>
-            <div class="inputBox">
-                <input type="text" name="" required="">
-                <label>Username</label>    
-            </div>
-            <div class="inputBox">
-                <input type="password" name="" required="">
-                <label>Password</label>
-            </div>
-            <input type="submit" name="" value="Submit">
+<body>
+    <div class="signup">
+        <form action="register.php" method="POST">
+            <h1 style="color:#fff;">Register</h1>
+            <input type="text" name="username"placeholder="Username" id="name"required="" ><br><br>
+            <input type="mail" name="mail" placeholder="Email"id="mail" required=""><br><br>
+            <input type="password" name="pass"placeholder="Password" id="pass" required=""><br><br>
+            <input type="password" placeholder="Confirm Password"id="cpass" required=""><br><br>
+            <input type="number" name="mob"placeholder="Mobile number"id="num" required=""><br><br>
+            <button type="submit" class= "button" name="Signup"  onclick="myFunction()">Register</button><br><br>
+                <div id ="msg">You have successfully registered!!!</div>
+                <a href="login.php">Already registered?</a>
         </form>
     </div>
-    
+    <script>
+                    function myFunction()
+                    {
+                        var name;
+                        name=document.getElementById("name").value;
+                        if(name=='')
+                        {
+                            alert('Username field is empty');
+                            return false;
+                        }
+                        var mail;
+                        mail=document.getElementById("mail").value;
+                        if(mail=='')
+                        {
+                            alert('Mail id please! ');
+                            return false;
+                        }
+                        var pass;
+                        pass=document.getElementById("pass").value;
+                        if(pass=='')
+                        {
+                            alert('Password field is empty');
+                            return false;
+                        }
+                        var cpass;
+                        cpass=document.getElementById("cpass").value;
+                        if(cpass=='')
+                        {
+                            alert('Confirm your password!');
+                            return false;
+                        }
+                        var num;
+                        num=document.getElementById("num").value;
+                        if(num=='')
+                        {
+                            alert('Enter a VALID mobile number! ');
+                            return false;
+                        }
+                        var x=document.getElementById("msg");
+                        x.className="show";
+                        setTimeout(function(){x.className=x.className.replace("show","");},3000);
+                    }
+                    //window.location.replace("index.html");
+                </script>
 </body>
 </html>
