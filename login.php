@@ -7,14 +7,15 @@
     }
     if (isset($_POST["sub1"]))
     {
-        $name=$_POST["name"];
-        $pass=$_POST["pass"];
-        $sql="select * from register where Username like '$name' and Password like '$pass'";
+        $mail=$_POST["mail"];
+        $sql="select * from staff where mail like '$mail'";
         $res=$con->query($sql);
-       // $data=$res->fetch_assoc();
+        $count=$res->num_rows;
+        echo $count;
+        //$data=$res->fetch_assoc();
        if( $res->num_rows==1)
        {
-        header("Location: calc.html");
+        header("Location: staff.html");
        }
        else{
 
@@ -63,7 +64,7 @@
     }
     .box .inputBox input
     {
-        width: 100;
+        width: 100%;
         padding: 10px 0;
         font-size: 16px;
         color: #fff;
@@ -104,35 +105,35 @@
         cursor: pointer;
         border-radius: 5px;
     }
-
+    
 </style>
 <body>
 
     <div class="box">
-        <h2>Login</h2>
+        <h2> Staff Login</h2>
         <form name="form1" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
             <div class="inputBox">
-                <input type="text" name="name" id="name" required="">
-                <label>Username</label>
+                <input type="mail" name="mail" id="mail" required="">
+                <label>E-Mail Id</label>
             </div>
             <div class="inputBox">
                 <input type="password" name="pass" required="">
                 <label>Password</label>
             </div>
-            <input type="submit" name="sub1" value="Submit" onclick="myFunction()">
+            <input type="submit" name="sub1" value="Submit" onclick="myFunction()"><br><br>
+            <a href="#" style="color:blue">Forgot Password?</a>
 </form>
     </div>
     <script>
         function myFunction()
         {
-          var name;
-          name=document.getElementById("name").value;
-          if(name=='')
+          var mail;
+          mail=document.getElementById("mail").value;
+          if(mail=='')
           {
-            alert('Name empty');
+            alert('Please enter a valid detail');
             return false;
           }
-        //   window.location.replace("calc.html");
         }
     </script>
     
